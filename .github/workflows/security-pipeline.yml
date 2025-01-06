@@ -13,8 +13,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: Set up CodeQL
+      - name: Set up CodeQL
+        uses: github/codeql-action/setup@v2
+
+      # Step 3: Initialize CodeQL
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: 'python'  # Change based on your project language
+
+      # Step 4: Perform CodeQL Scanning
+      - name: Perform CodeQL Scanning
+        uses: github/codeql-action/analyze@v2
+
+      # Step 5: Run Python Script (or your application)
       - name: Run Python Script
         run: python app.py
