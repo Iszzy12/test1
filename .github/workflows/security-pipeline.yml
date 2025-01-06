@@ -25,12 +25,12 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
-          languages: 'python'  # Change based on your project language
+          languages: 'python'  # or 'javascript', etc.
 
       # Step 4: Perform CodeQL Scanning
       - name: Perform CodeQL Scanning
         uses: github/codeql-action/analyze@v2
 
-      # Step 5: Run Python Script (or your application)
+      # Step 5: Run Python Script
       - name: Run Python Script
         run: python app.py
